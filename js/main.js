@@ -2,6 +2,28 @@ $(window).load(function(){
      $('.preloader').fadeOut('slow');
 });
 
+/* =Hourly Reminder  
+-------------------------------------------------------------- */
+function playSound() {
+  const audio = document.getElementById('alertSound');
+  audio.play();
+}
+
+function checkTime() {
+  const now = new Date();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  // If it's a multiple of 10 seconds
+  if (seconds%10 === 0) {
+    playSound();
+  }
+}
+
+// Check the time every second
+setInterval(checkTime, 1000);
+
+/* END ------------------------------------------------------- */
 
 /* =Main INIT Function
 -------------------------------------------------------------- */
@@ -53,6 +75,9 @@ $(window).load(function(){
 
 });
 /* END ------------------------------------------------------- */
+
+/* =Time 
+-------------------------------------------------------------- */
 setInterval(showTime, 1000);
  
 // Defining showTime funcion
@@ -93,23 +118,9 @@ function showTime() {
 }
  
 showTime();
+/* END ------------------------------------------------------- */
 
-var images = [
-  'images\background1.jpg',
-  'images\background2.jpg',
-  'images\background3.jpg',
-  'images\background4.jpg'
-];
+/* =Hero Transition 
+-------------------------------------------------------------- */
 
-window.addEventListener("load", startBackgroundTransition);
-
-function startBackgroundTransition() {
-  var container = document.getElementById('hero');
-
-  setInterval(function() {
-    container.style.setProperty("--background-image", `url(${images[1]})`);
-    images.push(images.shift());
-  }, 1000);
-}
-
-audioElement.play();
+/* END ------------------------------------------------------- */
