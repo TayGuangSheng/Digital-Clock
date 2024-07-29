@@ -15,7 +15,7 @@ function checkTime() {
   const seconds = now.getSeconds();
 
   // If it's a multiple of 10 seconds
-  if (seconds%10 === 0) {
+  if (minutes === 0 && seconds === 0) {
     playSound();
   }
 }
